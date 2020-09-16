@@ -8,10 +8,11 @@ che name sia più lungo di 3 caratteri, che mail contenga un punto e una
   $email = $_GET['email'];
   $age = $_GET['eta'];
 
- for( strlen($name) > 3 && stripos($email,'@') == true && stripos($email,'.') == true  && is_int($age) ){
-
-     var_dump('Accesso riuscito');
+ if((strlen($name) > 3 ) && (strpos($email,'@') !==false) && (strpos($email,'.') !==false)  && is_int($age) ){
+        $text= 'Accesso riuscito';
  }else {
-      var_dump('Accesso negato');
+      $text= 'Accesso negato';
  }
+ echo "$text " ;
+ echo "$email $name $age ";
 ?>
