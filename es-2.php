@@ -5,14 +5,14 @@ che name sia più lungo di 3 caratteri, che mail contenga un punto e una
   altrimenti “Accesso negato”-->
 <?php
   $name = $_GET['nome'];
-  $email = $_GET['email'];
+  $email = $_GET['mail'];
   $age = $_GET['eta'];
 
- if((strlen($name) > 3 ) && (strpos($email,'@') !==false) && (strpos($email,'.') !==false)  && is_int($age) ){
-        $text= 'Accesso riuscito';
+ if(strlen($name) > 3  && strpos($email,'@') !==false && strpos($email,'.') !==false  && is_numeric($age) ){
+        $text= 'Accesso Riuscito';
  }else {
-      $text= 'Accesso negato';
+      $text= 'X  Accesso Negato';
  }
  echo "$text " ;
- echo "$email $name $age ";
+ echo " $email $name $age ";
 ?>
