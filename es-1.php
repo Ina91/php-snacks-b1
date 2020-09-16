@@ -6,11 +6,25 @@
 
  <?php
     $partita = [
-        'Squadra_Casa' => 'Olimpia Milano',
-        'Squadra_Ospite' => 'Cantù',
-        'Punteggio_Casa'=> 55,
-        'Punteggio_Ospite'=>60
-        ];
+        [
+            'Squadra_Casa' => 'Olimpia Milano',
+            'Squadra_Ospite' => 'Cantù',
+            'Punteggio_Casa'=> 55,
+            'Punteggio_Ospite'=>60
+        ],
+        [
+            'Squadra_Casa' => 'Ravenna',
+            'Squadra_Ospite' => 'Bologna',
+            'Punteggio_Casa'=> 92,
+            'Punteggio_Ospite'=>65
+        ],
+        [
+            'Squadra_Casa' => 'Cattolica',
+            'Squadra_Ospite' => 'Rimini',
+            'Punteggio_Casa'=> 87,
+            'Punteggio_Ospite'=>61
+        ]
+    ];
  ?>
 
 <!DOCTYPE html>
@@ -22,8 +36,15 @@
        </head>
        <body>
            <h1>Partite di Basket</h1>
-           <div class="">
-               <?php echo $partita['Squadra_Casa'].'-'.$partita['Squadra_Ospite'].' | '.$partita['Punteggio_Casa'].'-'.$partita['Punteggio_Ospite'] ?>
-           </div>
+           <ul>
+                   <?php for ($i=0; $i<count($partita); $i++){
+                       ?>
+                       <li>
+                           <?php echo $partita[$i]['Squadra_Casa'].'-'.$partita[$i]['Squadra_Ospite'].' | '.$partita[$i]['Punteggio_Casa'].'-'.$partita[$i]['Punteggio_Ospite']; ?>
+                       </li>
+                       <?php
+
+                   }?>
+           </ul>
        </body>
 </html>
