@@ -4,15 +4,22 @@ che name sia più lungo di 3 caratteri, che mail contenga un punto e una
  chiocciola e che age sia un numero. Se tutto è ok stampare “Accesso riuscito”,
   altrimenti “Accesso negato”-->
 <?php
-  $name = $_GET['nome'];
-  $email = $_GET['mail'];
-  $age = $_GET['eta'];
+$name = isset($_GET['name']) ? $_GET['name'] : '';
+$mail = isset($_GET['mail']) ? $_GET['mail'] : '';
+$age = isset($_GET['age']) ? $_GET['age'] : '';
 
- if(strlen($name) > 3  && strpos($email,'@') !==false && strpos($email,'.') !==false  && is_numeric($age) ){
-        $text= 'Accesso Riuscito';
- }else {
-      $text= 'X  Accesso Negato';
+
+  if (empty($name) || empty($mail) || empty($age)) {
+     echo 'Non hai inserito tutti i dati';
+
+ } else {
+
+     if(strlen($name) > 3  && strpos($mail,'@') !==false && strpos($mail,'.') !==false  && is_numeric($age) ){
+            $text= 'Accesso Riuscito';
+     }else {
+          $text= 'X  Accesso Negato';
+     }
+     echo "$text " ;
+     echo " $mail $name $age ";
  }
- echo "$text " ;
- echo " $email $name $age ";
 ?>
